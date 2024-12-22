@@ -1,0 +1,37 @@
+Algorithm for Next Permutation:
+
+1.Find the longest non-increasing suffix:
+    Traverse the array from right to left to locate the first pair arr[i] and arr[i+1] such that arr[i] < arr[i+1].
+    Let this index be i. This is the point where the sequence stops being in descending order.
+
+
+2.Find the rightmost successor of arr[i]:
+    From the right side of the array, find the smallest element arr[j] that is greater than arr[i].
+    Swap arr[i] and arr[j].
+
+
+3.Reverse the suffix:
+    Reverse the portion of the array from i+1 to the end to make it the smallest possible order.
+
+______________________________________________________________________________________________________________________________
+
+Example:
+Input:
+arr = [2, 1, 5, 4, 3, 0, 0]
+
+Steps:
+Find the longest non-increasing suffix:
+
+Start from the right: [..., 4, 3, 0, 0] is non-increasing.
+Identify arr[i] = 1 where arr[i] < arr[i+1] = 5.
+Find the rightmost successor of arr[i] = 1:
+
+Look for the smallest element in the suffix that is larger than 1. This is arr[j] = 3.
+Swap arr[i] and arr[j]:
+arr = [2, 3, 5, 4, 1, 0, 0].
+Reverse the suffix starting at i+1:
+
+Reverse [5, 4, 1, 0, 0]:
+arr = [2, 3, 0, 0, 1, 4, 5].
+Output:
+[2, 3, 0, 0, 1, 4, 5]
